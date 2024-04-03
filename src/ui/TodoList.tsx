@@ -7,7 +7,7 @@ const prefix = '' // todo 1.2 prefix = 'Todo: '
 const TodoList : React.FC = ()=>{
     // reactive state input
     const [inputTitre, setTitre] = useState<string>(prefix)
-    // todo Pour la persistance des données on peut utiliser des hooks de cycle de vie pour initialiser le store avec une base de donnée au chargement du composant...
+    // Pour la persistance des données on peut utiliser des hooks de cycle de vie pour initialiser le store avec une base de donnée au chargement du composant...
     // reactive state global store
     const [store, setStore] = useState<TodoType[]>([])
     /**
@@ -19,7 +19,7 @@ const TodoList : React.FC = ()=>{
         }
 
     }
-    // todo Pour la persistance des données on peut mettre a jour l'élément qui a l'identifiant id lorsqu'une tache est terminee
+    // Pour la persistance des données on peut mettre a jour l'élément qui a l'identifiant id lorsqu'une tache est terminee
     /**
      * Checkboxes estTreminee control
      */
