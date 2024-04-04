@@ -26,13 +26,11 @@ const TodoList : React.FC = ()=>{
     const changeEstTerminee= (id:string,value:boolean)=>{
         // on converti le store en objet {[id]: todo, ....}
         // On évite ainsi l'utilisation de find qui présente de faibles performances
-        // Reduce renvoie une copie superficielle du store s'assurant ainsi de son immutabilité
        const storeObject= store.reduce((total:{ [id: string]: TodoType },todo)=>{
            total[todo.id as keyof typeof total]=todo
            return  total
        },{})
-        storeObject[id].estTerminee=value
-       setStore(Object.values(storeObject))
+       setStore(Object.values({...storeObject ,[id]:{...storeObject[id],estTerminee:value}}))
     }
     const addToStore = ()=>{
         if(inputTitre.length>prefix.length){
