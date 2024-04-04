@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 // On crée le type d'une tache
 type TodoType = {
-    id:string
-    titre:string
-    estTerminee:boolean
-}
+  id: string;
+  titre: string;
+  estTerminee: boolean;
+};
 // Le type de tache est étendu pour contenir le callback de control de la checkbox
 interface Props extends TodoType {
-    changeEstTerminee:(id: string, value: boolean) => void
+  changeEstTerminee: (id: string, value: boolean) => void;
 }
 
 /**
@@ -16,23 +16,23 @@ interface Props extends TodoType {
  * Le checkbox est controlé par son parent
  */
 const Todo: React.FC<Props> = ({
-        id,
-        titre,
-        estTerminee,
-        changeEstTerminee
-    })=>{
+  id,
+  titre,
+  estTerminee,
+  changeEstTerminee,
+}) => {
   return (
     <li>
-        {titre}
-        <input
-            type='checkbox'
-            checked={estTerminee}
-            onChange={e => changeEstTerminee(id,e.target.checked)}
-        />
+      {titre}
+      <input
+        type="checkbox"
+        checked={estTerminee}
+        onChange={(e) => changeEstTerminee(id, e.target.checked)}
+      />
     </li>
   );
-}
+};
 
-export {Todo}
+export { Todo };
 // On exporte le TodoType pour définir dans le parent, le type du store
-export type {TodoType}
+export type { TodoType };
